@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "pnpm tsx --env-file=.env ./src/index.ts",
     "eval": "pnpm tsx --env-file=.env ./src/evals/index.ts",
+    "eval:boundary": "pnpm tsx --env-file=.env ./src/evals/boundary.ts",
     "eval:relevancy": "pnpm tsx --env-file=.env ./src/evals/relevancy.ts",
     "eval:honesty": "pnpm tsx --env-file=.env ./src/evals/honesty.ts",
     "eval:citation": "pnpm tsx --env-file=.env ./src/evals/citation.ts",

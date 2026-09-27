@@ -30,3 +30,10 @@ export const target: EvalTarget<string, ResearchRunOutput> = async (input) => {
 
   return { output: outcome.text, reportFile };
 };
+
+/** Reply-only target for suites that grade just the agent's chat reply. */
+export const textTarget: EvalTarget<string, string> = async (input) => {
+  const agent = createAgent();
+  const outcome = await agent.generate({ prompt: input });
+  return outcome.text;
+};

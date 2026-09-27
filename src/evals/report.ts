@@ -19,7 +19,7 @@ const evalResult = await runEvalCli({
                     : EvalOutcome.fail(undefined, { comment: `${REPORT_PATH} was not created in the sandbox.` }),
         }),
     ],
-    reporters: [lens.evalReporter()],
+    reporters: [lens.evalReporter({ includePayloads: true })],
     exitCode: true,
 });
 console.log(evalResult.results);

@@ -13,7 +13,7 @@ export function createAgent(modelId?: string) {
     model: getModel(modelId),
     instructions: NEWS_RESEARCHER_INSTRUCTIONS,
     tools: [webSearchTool, ...tools],
-    maxTurns: 10,
+    maxTurns: 75,
     observability: {
       observers: {
         tracing: lens.observer({
