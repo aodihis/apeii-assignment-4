@@ -6,10 +6,10 @@
   "scripts": {
     "dev": "pnpm tsx --env-file=.env ./src/index.ts",
     "eval": "pnpm tsx --env-file=.env ./src/evals/index.ts",
-    "eval:boundary": "pnpm tsx --env-file=.env ./src/evals/boundary.ts",
+    "eval:abstention": "pnpm tsx --env-file=.env ./src/evals/abstention.ts",
+    "eval:contains": "pnpm tsx --env-file=.env ./src/evals/contains.ts",
+    "eval:faithfulness": "pnpm tsx --env-file=.env ./src/evals/faithfulness.ts",
     "eval:relevancy": "pnpm tsx --env-file=.env ./src/evals/relevancy.ts",
-    "eval:honesty": "pnpm tsx --env-file=.env ./src/evals/honesty.ts",
-    "eval:citation": "pnpm tsx --env-file=.env ./src/evals/citation.ts",
     "eval:report": "pnpm tsx --env-file=.env ./src/evals/report.ts",
     "build": "tsc"
   },

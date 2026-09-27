@@ -1,17 +1,17 @@
 import { contains, runEvalCli } from "@anvia/core/evals";
 import type { EvalMetricArgs } from "@anvia/core/evals";
 import { lens } from "../observer.js";
-import { citationCases } from "./citation-cases.js";
+import { containsCases } from "./contains-cases.js";
 import { textTarget } from "./target.js";
 
 const evalResult = await runEvalCli({
-    name: "citation-check",
-    cases: citationCases,
+    name: "contains-check",
+    cases: containsCases,
     target: textTarget,
     concurrency: 1,
     metrics: [
         contains({
-            name: "source-url-cited",
+            name: "reply-contains-expected",
             actual: (args: EvalMetricArgs<string, string, string>) => args.output,
             expected: (args) => args.case.expected!,
         }),
