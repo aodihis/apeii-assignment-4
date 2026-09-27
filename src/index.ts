@@ -1,8 +1,24 @@
+import { Studio } from "@anvia/studio";
 import { createAgent } from "./agents.js";
+import { lens } from "./observer.js";
+import { tools, sandbox } from "./sandbox.js";
+
+const agent = createAgent();
 
 
-const agent = createAgent()
-const res = await agent.generate({
-    prompt: "who can change the billing settings?"
+export const studio = new Studio([agent], {
+  sandboxes: [
+    {
+      inspector: sandbox.inspector({
+        files: true,
+        ports: true,
+        processes: true,
+      }),
+      agentIds: [agent.id],
+      toolNames: tools.map((tool) => tool.name),
+    },
+  ],
+}).serve({
+  port: 3000,
+  onShutdown: async () => sandbox.destroy(),
 });
-console.log(res.text)

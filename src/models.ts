@@ -11,6 +11,6 @@ const client = new OpenAIClient({
   baseUrl: process.env.OPENAI_BASE_URL,
 });
 
-export function getModel(modelId = "gpt-6-luna") {
+export function getModel(modelId = "gpt-5.6-luna") {
   return client.completionModel({ modelId });
 }
