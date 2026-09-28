@@ -1,5 +1,5 @@
 import { faithfulness, runEvalCli } from "@anvia/core/evals";
-import { getModel } from "../models.js";
+import { getJudgeModel } from "../models.js";
 import { lens } from "../observer.js";
 import { faithfulnessCases } from "./faithfulness-cases.js";
 import { textTarget } from "./target.js";
@@ -11,7 +11,7 @@ const evalResult = await runEvalCli({
     concurrency: 1,
     metrics: [
         faithfulness({
-            model: getModel(),
+            model: getJudgeModel(),
             threshold: 0.8,
         }),
     ],

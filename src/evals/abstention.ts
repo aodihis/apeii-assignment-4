@@ -1,5 +1,5 @@
 import { abstention, runEvalCli } from "@anvia/core/evals";
-import { getModel } from "../models.js";
+import { getJudgeModel } from "../models.js";
 import { lens } from "../observer.js";
 import { abstentionCases } from "./abstention-cases.js";
 import { textTarget } from "./target.js";
@@ -11,7 +11,7 @@ const evalResult = await runEvalCli({
     concurrency: 1,
     metrics: [
         abstention({
-            model: getModel(),
+            model: getJudgeModel(),
             shouldAbstain: ({ case: testCase }) => testCase.expected === true,
         }),
     ],

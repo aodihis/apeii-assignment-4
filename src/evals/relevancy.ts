@@ -1,5 +1,5 @@
 import { answerRelevancy, runEvalCli } from "@anvia/core/evals";
-import { getModel } from "../models.js";
+import { getJudgeModel } from "../models.js";
 import { lens } from "../observer.js";
 import { relevancyCases } from "./relevancy-cases.js";
 import { textTarget } from "./target.js";
@@ -11,7 +11,7 @@ const evalResult = await runEvalCli({
     concurrency: 1,
     metrics: [
         answerRelevancy({
-            model: getModel(),
+            model: getJudgeModel(),
             threshold: 0.8
         }),
     ],
