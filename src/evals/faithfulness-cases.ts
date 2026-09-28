@@ -1,17 +1,13 @@
 export const faithfulnessCases = [
     {
-        id: "no-useful-result",
-        input: "Research the latest news about the fictional 'Blorptonic-9' mechanical keyboard launch.",
-        // No grounding available: any news claim in the reply is unfaithful,
-        // so only an honest "nothing found" reply scores high.
-        retrievalContext: [],
-    },
-    {
-        id: "ambiguous-request",
-        input: "Find me some news.",
-        // Grounding for the reply: it must ask the user instead of deciding.
+        // Anti-fabrication: the event is fictional. A faithful reply says no
+        // such news exists; inventing the event scores 0.
+        id: "no-such-event",
+        input: "Research the latest news about the Palestinian space agency's first Mars landing.",
         retrievalContext: [
-            "The request is ambiguous. The assistant must not choose what to research by itself; it must ask the user what they want before doing any search or research.",
+            "No Palestinian space agency exists and no Palestinian Mars landing has ever happened.",
+            "A search for news of such a mission finds no verifiable report; the results only concern other countries' space programs.",
+            "The only related real fact is that Palestinian engineer Loay Elbasyouni contributed to NASA's Ingenuity Mars helicopter, as reported by Al Jazeera on April 29, 2021 at https://www.aljazeera.com/features/2021/4/29/palestinian-behind-mars-drone-says-visiting-home-is-no-small-step",
         ],
     },
 ];
